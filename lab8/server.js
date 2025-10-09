@@ -22,6 +22,10 @@ const server = http.createServer((req, res) => {
     const age = urlObj.searchParams.get("age");
     // console.log(urlObj.searchParams);
     res.end(`This is search page, name: ${name}, age: ${age}`);
+  } else if (req.url.startsWith("/sum")) {
+    const a = urlObj.searchParams.get("a");
+    const b = urlObj.searchParams.get("b");
+    res.end(`This is sum page, Sum is ${a * b}`);
   } else {
     res.writeHead(404, { "Content-Type": "text/plain" });
     res.end("404 Not found");
